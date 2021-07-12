@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+
+import Input from "./components/Input";
 
 function App() {
+const [numeroA, setnumeroA] = useState(0)
+const [numeroB, setnumeroB] = useState(0)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="contenedor-principal">
+  <Input key="a"/>
+  <Input key="b"/>
+  </div>
   );
 }
 
