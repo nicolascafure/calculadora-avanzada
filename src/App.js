@@ -9,8 +9,8 @@ const [numeroB, setnumeroB] = useState(0)
 
   return (
     <div className="contenedor-principal">
-  <Input key="a"/>
-  <Input key="b"/>
+  <Input key="a" setNumero={setnumeroA}/>
+  <Input key="b" setNumero={setnumeroB} />
   </div>
   );
 }
