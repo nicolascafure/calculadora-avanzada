@@ -1,15 +1,18 @@
 import React from 'react';
 
-const Input = ({setNumero}) => {
+const Input = ({setNumero, numero}) => {
 
 const leerValor=(e)=>{
 setNumero(e.target.value)
+}
 
+const resetValor =()=>{
+    setNumero(0)
 }
 
     return (<>
-    <input type="number" onInput={leerValor} ></input> 
-    <button onInput>Clear</button>
+    <input type="number" onInput={leerValor} value={numero} ></input> 
+    <button onClick={resetValor}>Clear</button>
         </>
      );
 }
