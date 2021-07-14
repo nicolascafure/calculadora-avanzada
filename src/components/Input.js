@@ -8,10 +8,12 @@ setNumero(Number(e.target.value))
 setError(false)
 }else{
 setError(true)
+return 
 }}
 
 const resetValor =()=>{
     setNumero(0)
+   
 }
 
     return (<>
