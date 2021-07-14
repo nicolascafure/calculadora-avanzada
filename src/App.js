@@ -15,10 +15,13 @@ useEffect(() => {
   return (
    
     <div className="contenedor-principal">
+      <div className="contenedor-numbers">
   <Input key="a" setNumero={setnumeroA} numero={numeroA} />
   <Input key="b" setNumero={setnumeroB} numero={numeroB} />
+  </div>
+  <div className="contenedor-operaciones">
 {funcionesCalculadora.map(funcion=> <Operation key={funcion} numeroA={numeroA} numeroB={numeroB} operation={funcion}/>)}
-  
+</div>
 
  </div> );
 }

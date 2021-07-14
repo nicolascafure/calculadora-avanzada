@@ -4,7 +4,7 @@ import React from 'react';
 const Input = ({setNumero, numero}) => {
 
 const leerValor=(e)=>{
-   if(Number(e.target.value)){
+   if(e.target.value ===""||Number(e.target.value)){
 setNumero(Number(e.target.value))
 }else{
 return 

@@ -18,8 +18,8 @@ const Operation = ({numeroA,numeroB, operation}) => {
     return ( 
 
 <div className="contenedor-operaciones">
-    <h1>{operation.charAt(0).toUpperCase() + operation.slice(1)}</h1>
-    <p>{calculator(numeroA,numeroB,operation)}</p>
+    <h1 className="titulo-operacion">{operation.charAt(0).toUpperCase() + operation.slice(1)}</h1>
+    <p className="resultado">{calculator(numeroA,numeroB,operation)}</p>
 </div>
 
      );
