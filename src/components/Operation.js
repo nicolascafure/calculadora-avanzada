@@ -17,7 +17,7 @@ const Operation = ({numeroA,numeroB, operation}) => {
     }
     return ( 
 
-<div className="contenedor-operaciones">
+<div className="operacion">
     <h1 className="titulo-operacion">{operation.charAt(0).toUpperCase() + operation.slice(1)}</h1>
     <p className="resultado">{calculator(numeroA,numeroB,operation)}</p>
 </div>

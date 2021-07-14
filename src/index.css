@@ -10,11 +10,54 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(fondo.jpg);
+  background-size: cover;
   display: flex;
   justify-content: center;
+  font-family: 'Orbitron', sans-serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.contenedor-operaciones{
+  margin: 15px;
+}
+
+.operacion{
+  margin-bottom: 10px;
+  background-color: rgba(241, 241, 241, 0.781);
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+}
+
+.titulo-operacion{
+  color: rgb(206, 98, 10);
+}
+
+.resultado{
+  font-size: 25px;
+}
+
+.contenedor-numbers{
+  margin-top: 30px;
+}
+
+input{
+  padding: 1rem;
+  border-radius: 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.877);
+}
+
+button{
+  padding: 1rem;
+  border: none;
+  background-color: darkorange;
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 15px;
 }
