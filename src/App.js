@@ -1,23 +1,24 @@
 import {useState, useEffect} from "react";
-
 import Input from "./components/Input";
+import Operation from "./components/Operation";
 
 function App() {
 
-const [numeroA, setnumeroA] = useState("")
-const [numeroB, setnumeroB] = useState("")
+const [numeroA, setnumeroA] = useState(0)
+const [numeroB, setnumeroB] = useState(0)
 const[error, setError]= useState(false)
 
 useEffect(() => {
-  setnumeroA(0)
-  setnumeroB(0)
 
-}, [])
+}, [numeroA,numeroB])
 
   return (
+   
     <div className="contenedor-principal">
   <Input key="a" setNumero={setnumeroA} numero={numeroA} setError={setError}/>
   <Input key="b" setNumero={setnumeroB} numero={numeroB} setError={setError}/>
+
+  <Operation numeroA={numeroA} numeroB={numeroB} operation="suma"/>
   
 {error? <h1>Ingrese valores correctos</h1>:
 <div>
