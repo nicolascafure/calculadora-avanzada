@@ -3,7 +3,7 @@ import React from 'react';
 const Input = ({setNumero, numero}) => {
 
 const leerValor=(e)=>{
-setNumero(e.target.value)
+setNumero(Number(e.target.value))
 }
 
 const resetValor =()=>{
