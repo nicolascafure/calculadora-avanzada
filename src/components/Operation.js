@@ -5,13 +5,13 @@ const Operation = ({numeroA,numeroB, operation}) => {
      Number(a)
      Number(b)
         const operations = {
-          suma: (a, b) => a + b,
-          resta: (a, b) => a - b,
-          multiplicacion: (a, b) => a * b,
-          division: (a, b) => a / b,
-          raiz: (a,b) => ` ${Math.sqrt(a)}   ${Math.sqrt(b)}  ` ,
-          potencia: (a,b) => Math.pow(a, b),
-          hipotenusa: (a,b) =>  Math.hypot(a,b)
+          suma: (a, b) => (a + b).toFixed(2),
+          resta: (a, b) => (a - b).toFixed(2),
+          multiplicacion: (a, b) => (a * b).toFixed(2),
+          division: (a, b) =>isNaN( a / b) ? 0: (a/b).toFixed(2),
+          raiz: (a,b) => `Raiz de ${a} = ${Math.sqrt(a).toFixed(2)}   |   Raiz de ${b} = ${Math.sqrt(b).toFixed(2)}  ` ,
+          potencia: (a,b) => Math.pow(a, b).toFixed(2),
+          hipotenusa: (a,b) =>  (Math.hypot(a,b)).toFixed(2)
         };
         return operations[ope]?.(a, b) 
     }
