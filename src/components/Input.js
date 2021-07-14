@@ -1,13 +1,12 @@
 import React from 'react';
 
-const Input = ({setNumero, numero,setError}) => {
+
+const Input = ({setNumero, numero}) => {
 
 const leerValor=(e)=>{
    if(Number(e.target.value)){
 setNumero(Number(e.target.value))
-setError(false)
 }else{
-setError(true)
 return 
 }}
 

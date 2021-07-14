@@ -1,16 +1,9 @@
 import React from 'react';
-import { useEffect } from 'react';
 
 const Operation = ({numeroA,numeroB, operation}) => {
-
-
-
     function calculator(a, b, ope) {
-  
      Number(a)
      Number(b)
-     console.log(a,b)
-
         const operations = {
           suma: (a, b) => a + b,
           resta: (a, b) => a - b,
@@ -25,7 +18,7 @@ const Operation = ({numeroA,numeroB, operation}) => {
     return ( 
 
 <div className="contenedor-operaciones">
-    <h1>{operation}</h1>
+    <h1>{operation.charAt(0).toUpperCase() + operation.slice(1)}</h1>
     <p>{calculator(numeroA,numeroB,operation)}</p>
 </div>
 
