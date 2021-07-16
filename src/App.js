@@ -5,20 +5,20 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function App() {
   const funcionesCalculadora = [
-    "suma",
-    "resta",
-    "multiplicacion",
-    "division",
-    "potencia",
-    "raiz",
-    "hipotenusa",
+    { title: "suma", result: 0 },
+    { title: "resta", result: 0 },
+    { title: "multiplicacion", result: 0 },
+    { title: "division", result: 0 },
+    { title: "potencia", result: 0 },
+    { title: "raiz", result: 0 },
+    { title: "hipotenusa", result: 0 },
   ];
-
 
   const [numeroA, setnumeroA] = useState(0);
   const [numeroB, setnumeroB] = useState(0);
-  const[functions, setFunction]=useState(funcionesCalculadora)
+  const [functions, setFunction] = useState(funcionesCalculadora);
   const onDragEnd = (result) => {
+    console.log(result);
     if (!result.destination) {
       return;
     }
@@ -26,7 +26,13 @@ function App() {
       return;
     }
 
-  setFunction((funcionesCalculadora)=>reorder(funcionesCalculadora,result.source.index,result.destination.index))
+    setFunction((funcionesCalculadora) =>
+      reorder(
+        funcionesCalculadora,
+        result.source.index,
+        result.destination.index
+      )
+    );
   };
 
   const reorder = (list, startIndex, endIndex) => {
@@ -36,8 +42,6 @@ function App() {
 
     return result;
   };
-
- 
 
   useEffect(() => {}, [numeroA, numeroB]);
 
@@ -56,8 +60,8 @@ function App() {
               ref={droppableP.innerRef}
               className="contenedor-operaciones"
             >
-              {funcionesCalculadora.map((funcion, index) => (
-                <Draggable key={funcion} draggableId={funcion} index={index}>
+              {functions.map((funcion, index) => (
+                <Draggable key={funcion.title} draggableId={funcion.title} index={index}>
                   {(draggableP) => (
                     <div
                       {...draggableP.draggableProps}
@@ -67,7 +71,7 @@ function App() {
                       <Operation
                         numeroA={numeroA}
                         numeroB={numeroB}
-                        operation={funcion}
+                        operation={funcion.title}
                       />
                     </div>
                   )}
