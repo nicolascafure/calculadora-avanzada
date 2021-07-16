@@ -1,4 +1,5 @@
 import React from 'react';
+import { DragDropContext, Droppable , Draggable} from 'react-beautiful-dnd';
 
 const Operation = ({numeroA,numeroB, operation}) => {
     function calculator(a, b, ope) {
@@ -21,6 +22,7 @@ const Operation = ({numeroA,numeroB, operation}) => {
     <h1 className="titulo-operacion">{operation.charAt(0).toUpperCase() + operation.slice(1)}</h1>
     <p className="resultado">{calculator(numeroA,numeroB,operation)}</p>
 </div>
+
 
      );
 }

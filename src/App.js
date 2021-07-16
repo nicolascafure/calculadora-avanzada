@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import Input from "./components/Input";
 import Operation from "./components/Operation";
+import { DragDropContext, Droppable , Draggable} from 'react-beautiful-dnd';
 
 function App() {
 
@@ -13,17 +14,21 @@ useEffect(() => {
 }, [numeroA,numeroB])
 
   return (
-   
+    <DragDropContext  >
     <div className="contenedor-principal">
       <div className="contenedor-numbers">
   <Input key="a" setNumero={setnumeroA} numero={numeroA} />
   <Input key="b" setNumero={setnumeroB} numero={numeroB} />
   </div>
+  <Droppable droppableId="list">
   <div className="contenedor-operaciones">
-{funcionesCalculadora.map(funcion=> <Operation key={funcion} numeroA={numeroA} numeroB={numeroB} operation={funcion}/>)}
-</div>
 
- </div> );
+{funcionesCalculadora.map(funcion=><Draggable draggableId={funcion} > <Operation key={funcion} numeroA={numeroA} numeroB={numeroB} operation={funcion}/> </Draggable>)}
+</div> 
+ </Droppable>
+
+ </div> 
+ </DragDropContext>);
 }
 
 export default App;
