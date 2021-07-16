@@ -2,38 +2,12 @@ import { useState, useEffect } from "react";
 import Input from "./components/Input";
 import Operation from "./components/Operation";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import funcionesCalculadora from "./utils/functionList"
 
 function App() {
-  const funcionesCalculadora = [
-    { title: "suma", result: 0 },
-    { title: "resta", result: 0 },
-    { title: "multiplicacion", result: 0 },
-    { title: "division", result: 0 },
-    { title: "potencia", result: 0 },
-    { title: "raiz", result: 0 },
-    { title: "hipotenusa", result: 0 },
-  ];
-
   const [numeroA, setnumeroA] = useState(0);
   const [numeroB, setnumeroB] = useState(0);
-  const [functions, setFunction] = useState(funcionesCalculadora);
-  const onDragEnd = (result) => {
-    console.log(result);
-    if (!result.destination) {
-      return;
-    }
-    if (result.destination.index === result.source.index) {
-      return;
-    }
-
-    setFunction((funcionesCalculadora) =>
-      reorder(
-        funcionesCalculadora,
-        result.source.index,
-        result.destination.index
-      )
-    );
-  };
+  const [functionsCalculator, setFunctionCalculator] = useState(funcionesCalculadora);
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -43,7 +17,23 @@ function App() {
     return result;
   };
 
-  useEffect(() => {}, [numeroA, numeroB]);
+  const onDragEnd = (result) => {
+    console.log(result);
+    if (!result.destination) {
+      return;
+    }
+    if (result.destination.index === result.source.index) {
+      return;
+    }
+
+    setFunctionCalculator((funcionesCalculadora) =>
+      reorder(
+        funcionesCalculadora,
+        result.source.index,
+        result.destination.index
+      )
+    );
+  };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -60,8 +50,8 @@ function App() {
               ref={droppableP.innerRef}
               className="contenedor-operaciones"
             >
-              {functions.map((funcion, index) => (
-                <Draggable key={funcion.title} draggableId={funcion.title} index={index}>
+              {functionsCalculator.map((f, index) => (
+                <Draggable key={f.title} draggableId={f.title} index={index}>
                   {(draggableP) => (
                     <div
                       {...draggableP.draggableProps}
@@ -71,7 +61,7 @@ function App() {
                       <Operation
                         numeroA={numeroA}
                         numeroB={numeroB}
-                        operation={funcion.title}
+                        operation={f.title}
                       />
                     </div>
                   )}
