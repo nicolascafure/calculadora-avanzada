@@ -1,5 +1,5 @@
 import React from 'react';
-import { DragDropContext, Droppable , Draggable} from 'react-beautiful-dnd';
+
 
 const Operation = ({numeroA,numeroB, operation}) => {
     function calculator(a, b, ope) {
