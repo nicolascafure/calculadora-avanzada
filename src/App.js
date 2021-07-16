@@ -14,17 +14,18 @@ useEffect(() => {
 }, [numeroA,numeroB])
 
   return (
-    <DragDropContext  >
+    <DragDropContext onDragEnd={result=>console.log(result)} >
     <div className="contenedor-principal">
       <div className="contenedor-numbers">
   <Input key="a" setNumero={setnumeroA} numero={numeroA} />
   <Input key="b" setNumero={setnumeroB} numero={numeroB} />
   </div>
-  <Droppable droppableId="list">
-  <div className="contenedor-operaciones">
+  <Droppable droppableId="operaciones">
+ {(droppableP)=> <div {...droppableP.droppableProps} ref={droppableP.innerRef} className="contenedor-operaciones">
 
 {funcionesCalculadora.map(funcion=><Draggable draggableId={funcion} > <Operation key={funcion} numeroA={numeroA} numeroB={numeroB} operation={funcion}/> </Draggable>)}
-</div> 
+{droppableP.placeholder}
+</div> }
  </Droppable>
 
  </div> 
